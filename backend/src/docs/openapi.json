@@ -1,0 +1,38 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Library API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    { "url": "http://localhost:4000" }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "summary": "Health check",
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/auth/register": { "post": { "summary": "Register", "responses": { "201": { "description": "Created" } } } },
+    "/api/auth/login": { "post": { "summary": "Login", "responses": { "200": { "description": "OK" } } } },
+    "/api/books": {
+      "get": { "summary": "List books", "responses": { "200": { "description": "OK" } } },
+      "post": { "summary": "Create book", "responses": { "201": { "description": "Created" }, "401": { "description": "Unauthorized" } } }
+    },
+    "/api/books/{id}": {
+      "get": { "summary": "Get book", "responses": { "200": { "description": "OK" }, "404": { "description": "Not found" } } },
+      "put": { "summary": "Update book", "responses": { "200": { "description": "OK" }, "404": { "description": "Not found" } } },
+      "delete": { "summary": "Delete book", "responses": { "200": { "description": "OK" }, "404": { "description": "Not found" } } }
+    },
+    "/api/loans": { "get": { "summary": "List loans (admin)" }, "post": { "summary": "Create loan" } },
+    "/api/loans/me": { "get": { "summary": "My loans" } },
+    "/api/loans/{id}/return": { "post": { "summary": "Return a loan" } },
+    "/api/reservations": { "get": { "summary": "List reservations (admin)" }, "post": { "summary": "Create reservation" } },
+    "/api/reservations/me": { "get": { "summary": "My reservations" } },
+    "/api/reservations/{id}": { "delete": { "summary": "Cancel reservation" } },
+    "/api/admin/stats": { "get": { "summary": "Stats" } }
+  }
+}
+
+
